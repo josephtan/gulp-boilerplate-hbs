@@ -56,7 +56,9 @@ gulp.task('images', function () {
 
 gulp.task('compress', function() {
   return gulp.src(sourcePaths.script)
-      .pipe(uglify())
+      .pipe(uglify('*.js', {
+        outSourceMap: true
+      }))
       .pipe(gulp.dest(distPaths.script));
 });
 
